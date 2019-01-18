@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Pokemon } from './model/pokemon';
-import { APIResponseService } from './apiresponse.service';
+import { APIResponse } from './model/apiResponse';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
 
+  //https://docs.nativescript.org/ns-framework-modules/http MIRAR
+
   private baseURL="https://pokeapi.co/api/v2/";
 
   constructor(private http: HttpClient) { }
 
   getPokemons(){
-    return this.http.get<APIResponseService>(this.baseURL+"/pokemon");
+    return this.http.get<APIResponse>(this.baseURL+"/pokemon");
   }
 }

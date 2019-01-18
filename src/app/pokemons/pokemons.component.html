@@ -1,6 +1,7 @@
 <Button text="pokemons works!" class="btn btn-primary"></Button>
 
 <StackLayout *ngFor="let pokemon of pokemons; index as i" orientation="horizontal">
+    <label>{{pokemons}}</label>
     <label>{{pokemon.name}}</label>
     <label>{{pokemon.url}}</label>
 </StackLayout>
