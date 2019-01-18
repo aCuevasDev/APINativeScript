@@ -1,0 +1,16 @@
+<Button text="pokemons works!" class="btn btn-primary"></Button>
+
+<StackLayout *ngFor="let pokemon of pokemons; index as i" orientation="horizontal">
+    <label>{{pokemon.name}}</label>
+    <label>{{pokemon.url}}</label>
+</StackLayout>
+
+<!--
+<stackLayout  *ngFor="let producto of productos; index as i"
+    orientation="horizontal" >
+    <button text="REM" (tap)="borraProducto(i)"></button>
+    <label text="{{i}} Nom: {{producto.nombre}}"></label>
+    <label text=" Desc: {{producto.descripcion}}"></label>
+    <label text=" Preu {{producto.precio}}"></label>
+ </stackLayout> 
+ -->
