@@ -4,22 +4,21 @@ import { Pokemon } from "./pokemon";
 
 export class APIResponse {
 
-    constructor(public count: number,public next: string, public previous: string, public results : Pokemon[]) 
-    { }
-  
-    getCount(){
-      return this.count;
-    }
-  
-    getNext(){
-      return this.next;
-    }
-  
-    getPrevious(){
-      return this.previous;
-    }
-  
-    getResults(){
-      return this.results;
-    }
+  constructor(public count: number, public next: string, public previous: string, public results: Pokemon[]) { }
+
+  // public getCount() {
+  //   return this.count;
+  // }
+
+  // public getNext() {
+  //   return this.next;
+  // }
+
+  // public getPrevious() {
+  //   return this.previous;
+  // }
+
+  // public getResults() {
+  //   return this.results;
+  // }
 }
