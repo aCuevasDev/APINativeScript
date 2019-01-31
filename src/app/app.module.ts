@@ -12,6 +12,7 @@ import { PokemonComponent } from "./pokemon/pokemon.component";
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { NativeScriptRouterModule } from "nativescript-angular/router";
 
 @NgModule({
     bootstrap: [
@@ -20,12 +21,13 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
     imports: [
         NativeScriptModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NativeScriptRouterModule,
     ],
     declarations: [
         AppComponent,
         PokemonComponent,
-        PokemonsComponent
+        PokemonsComponent,
     ],
     providers: [],
     schemas: [

@@ -17,8 +17,8 @@ export class PokemonService {
 
   private baseURL = "https://pokeapi.co/api/v2";
 
-  getPokemons() {
+  getPokemons(url: string = this.baseURL + "/pokemon") {
     // return getJSON(this.baseURL + "pokemon");
-    return this.http.get<APIResponse>(this.baseURL + "/pokemon");
+    return this.http.get<APIResponse>(url);
   }
 }

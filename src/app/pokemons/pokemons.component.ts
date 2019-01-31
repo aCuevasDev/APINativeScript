@@ -3,7 +3,11 @@ import { Pokemon } from '../model/pokemon';
 import { PokemonService } from '../pokemon.service';
 import { APIResponse } from '../model/apiResponse';
 import { RouterModule } from '@angular/router';
+import { NativeScriptRouterModule, RouterExtensions } from 'nativescript-angular/router';
 
+
+
+export type RequestType = "next" | "previous";
 
 @Component({
   selector: 'ns-pokemons',
@@ -14,18 +18,29 @@ import { RouterModule } from '@angular/router';
 export class PokemonsComponent implements OnInit {
 
   private pokemons: Pokemon[];
-  private countPokemon: number; //to get the id of the pkmn
+  private countPokemon: number = 0; //to get the id of the pkmn
+  private nextUrl: string = undefined;
+  private previousUrl: string = undefined;
 
-  constructor(private pokemonService: PokemonService, private route: RouterModule) { }
+  constructor(private pokemonService: PokemonService, private router: RouterExtensions) { }
 
   ngOnInit() {
-    this.pokemonService.getPokemons().subscribe(apiResponse => {
+    this.loadPokemons("next");
+  }
+
+  loadPokemons(rqstType: RequestType) {
+    let url = (rqstType == "next") ? this.nextUrl : this.previousUrl;
+
+    this.pokemonService.getPokemons(url).subscribe(apiResponse => {
       this.pokemons = apiResponse.results;
+      this.nextUrl = apiResponse.next;
+      this.previousUrl = apiResponse.previous;
       console.log("length: " + this.pokemons.length);
     });
   }
 
+
   click(pokemon: Pokemon) {
-    this.route.
+    this.router.navigate(["pokemon" + pokemon.name])
   }
 }

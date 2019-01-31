@@ -1,8 +1,11 @@
 <ScrollView orientation="vertical">
     <StackLayout style="width: 80%;">
         <StackLayout *ngFor="let pokemon of pokemons; index as i">
-            <Button text="{{i}} : {{pokemon.name}}"></Button>
+            <Button text="{{countPokemon+i}} : {{pokemon.name}}"></Button>
             <!-- <Label text="{{pokemon.url}}"></Label> -->
+        </StackLayout>
+        <StackLayout orientation="horizontal" class="buttons">
+            <Button text="previous" (tap)="loadPokemons('previous')"><span></span></Button><Button text="next" (tap)="loadPokemons('next')"></Button>
         </StackLayout>
     </StackLayout>
 </ScrollView>
