@@ -13,7 +13,7 @@
                 <label class="body" text="Height: {{pokemonDetail.height}}"></label>
                 <label class="body" text="Weight: {{pokemonDetail.weight}}"></label>
                 <label *ngFor="let stat of pokemonDetail.stats" text="{{stat.stat.name}} : {{stat.base_stat}} "></label>
-                <label *ngFor="let type of pokemonDetail.types " class="body" text="Type {{pokemonDetail.types.slot}}: {{pokemonDetail.types.type.name}}"></label>
+                <label *ngFor="let type of pokemonDetail.types " class="body" text="Type {{type.slot}}: {{type.type.name}}"></label>
             </StackLayout>
         </ScrollView>
 
