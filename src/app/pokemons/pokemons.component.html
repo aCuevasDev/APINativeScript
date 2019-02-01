@@ -1,6 +1,8 @@
 <Page class="page">
     <Page.actionBar>
         <ActionBar class="action-bar" title="PokeApi">
+            <ActionItem class="btn btn-primary" text="Previous" (tap)="loadPokemons('previous')" [isEnabled]="!loading"></ActionItem>
+            <ActionItem class="btn btn-primary" text="Next" (tap)="loadPokemons('next')" [isEnabled]="!loading"></ActionItem>
         </ActionBar>
     </Page.actionBar>
 
@@ -11,10 +13,10 @@
                 <!-- <Label text="{{pokemon.url}}"></Label> -->
             </StackLayout>
             <StackLayout orientation="horizontal">
-                <Button class="btn btn-primary" text="Previous" (tap)="loadPokemons('previous')" [isEnabled]="!loading">
-                    <!-- *ngIf="previousURL" -->
-                    <span class="filler"></span></Button>
-                <Button class="btn btn-primary" text="Next" (tap)="loadPokemons('next')" [isEnabled]="!loading"></Button>
+                <!-- <Button class="btn btn-primary" text="Previous" (tap)="loadPokemons('previous')" [isEnabled]="!loading"> -->
+                <!-- *ngIf="previousURL" -->
+                <span class="filler"></span></Button>
+                <!-- <Button class="btn btn-primary" text="Next" (tap)="loadPokemons('next')" [isEnabled]="!loading"></Button> -->
                 <!-- *ngIf="nextURL" -->
             </StackLayout>
         </StackLayout>
