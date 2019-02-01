@@ -1,5 +1,5 @@
 
-export class Sprites {
+class Sprites {
 
     constructor(
         private back_default: string,
@@ -14,22 +14,32 @@ export class Sprites {
     }
 }
 
-export class Types {
-    constructor(public) {
-        "types": [
-            {
-                "slot": 1,
-                "type": {
-                    "name": "normal",
-                    "url": "https://pokeapi.co/api/v2/type/1/"
-                }
-            }
+class Types {
+    constructor(
+        public slot: number,
+        public type: { name: string, url: string }
+    ) { }
+}
+
+class Stats {
+    constructor(
+        public stat: { base_stat: number, effort: number, stat: { name: string, url: string } }
+    ) {
+
     }
 }
 
 export class PokemonDetail {
 
-    constructor(public id: number, public base_experience: number, public location_area_encounters: string, public moves: { move: { name: string } }[], public sprites: Sprites, ) {
-
-    }
+    constructor(public id: number,
+        public species: { name: string, url: string },
+        public base_experience: number,
+        public location_area_encounters: string,
+        public moves: { move: { name: string } }[],
+        public sprites: Sprites,
+        public types: Types,
+        public height: number,
+        public stats: Stats[],
+        public weight: number
+    ) { }
 }

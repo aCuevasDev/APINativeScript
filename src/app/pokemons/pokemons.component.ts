@@ -18,7 +18,7 @@ export type RequestType = "next" | "previous";
 export class PokemonsComponent implements OnInit {
 
   private pokemons: Pokemon[];
-  private countPokemon: number = 0; //to get the id of the pkmn
+  private countPokemon: number = 1; //to get the id of the pkmn
   private nextUrl: string = undefined;
   private previousUrl: string = undefined;
 
@@ -30,6 +30,9 @@ export class PokemonsComponent implements OnInit {
 
   loadPokemons(rqstType: RequestType) {
     let url = (rqstType == "next") ? this.nextUrl : this.previousUrl;
+    this.countPokemon = (rqstType == "next") ? this.countPokemon + this.pokemons.length : this.countPokemon + this.pokemons.length;
+    if (this.countPokemon < 0)
+      this.countPokemon = 1;
 
     this.pokemonService.getPokemons(url).subscribe(apiResponse => {
       this.pokemons = apiResponse.results;
