@@ -9,7 +9,7 @@
             <StackLayout orientation="vertical">
                 <label class="body" text="Name: {{pokemonDetail.species.name}}"></label>
                 <label class="body" text="ID: {{pokemonDetail.id}}"></label>
-                <label class="body" text="Base exp: {{pokemonDetail.base_experience}}"></label>
+                <label class="body" text="Base EXP: {{pokemonDetail.base_experience}}"></label>
                 <label class="body" text="Height: {{pokemonDetail.height}}"></label>
                 <label class="body" text="Weight: {{pokemonDetail.weight}}"></label>
                 <label *ngFor="let stat of pokemonDetail.stats" text="{{stat.stat.name}} : {{stat.base_stat}} "></label>
