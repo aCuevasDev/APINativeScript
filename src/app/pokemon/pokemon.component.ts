@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PokemonDetail } from '../model/pokemonDetail';
+import { PokemonService } from '../pokemon.service';
 
 @Component({
   selector: 'ns-pokemon',
@@ -8,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonComponent implements OnInit {
 
-  constructor() { }
+  public pokemonDetail: PokemonDetail;
+  public pokeName: string;
+
+  constructor(
+    private route: ActivatedRoute,
+    private pokemonService: PokemonService) { }
 
   ngOnInit() {
+    this.pokeName = this.route.snapshot.paramMap.get("pokemonName");
+    this.pokemonService.getPokemon(this.pokeName).subscribe(pokemon => this.pokemonDetail = pokemon);
   }
 
 }

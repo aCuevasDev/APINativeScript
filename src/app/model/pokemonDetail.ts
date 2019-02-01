@@ -31,7 +31,8 @@ class Stats {
 
 export class PokemonDetail {
 
-    constructor(public id: number,
+    constructor(
+        public id: number,
         public species: { name: string, url: string },
         public base_experience: number,
         public location_area_encounters: string,
