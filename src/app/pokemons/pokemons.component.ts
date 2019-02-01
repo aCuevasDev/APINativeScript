@@ -21,6 +21,7 @@ export class PokemonsComponent implements OnInit {
   private countPokemon: number = 1; //to get the id of the pkmn
   private nextUrl: string = undefined;
   private previousUrl: string = undefined;
+  public loading: boolean = false;
 
   constructor(private pokemonService: PokemonService, private router: RouterExtensions) { }
 
@@ -29,11 +30,13 @@ export class PokemonsComponent implements OnInit {
   }
 
   loadPokemons(rqstType: RequestType) {
-    let url = (rqstType == "next") ? this.nextUrl : this.previousUrl;
+    this.loading = true;
+    let url = (rqstType === "next") ? this.nextUrl : this.previousUrl;
 
     this.pokemonService.getPokemons(url).subscribe(apiResponse => {
       this.setCount(rqstType);
       this.setData(apiResponse);
+      this.loading = false;
     });
   }
 
@@ -45,7 +48,7 @@ export class PokemonsComponent implements OnInit {
   }
 
   setCount(rqstType: RequestType) {
-    this.countPokemon = (rqstType == "next") ? this.countPokemon + this.pokemons.length : this.countPokemon + this.pokemons.length;
+    this.countPokemon = (rqstType === "next") ? this.countPokemon + this.pokemons.length : this.countPokemon - this.pokemons.length;
     if (this.countPokemon < 1)
       this.countPokemon = 1;
   }

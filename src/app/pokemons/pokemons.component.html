@@ -1,13 +1,22 @@
-<ScrollView orientation="vertical">
-    <StackLayout style="width: 80%;">
-        <StackLayout *ngFor="let pokemon of pokemons; index as i">
-            <Button text="{{countPokemon+i}} : {{pokemon.name}}" (tap)="seeDetail(pokemon)"></Button>
-            <!-- <Label text="{{pokemon.url}}"></Label> -->
+<Page class="page">
+    <Page.actionBar>
+        <ActionBar class="action-bar" title="PokeApi">
+        </ActionBar>
+    </Page.actionBar>
+
+    <ScrollView orientation="vertical">
+        <StackLayout style="width: 80%;">
+            <StackLayout *ngFor="let pokemon of pokemons; index as i">
+                <Button class="btn btn-primary" text="{{countPokemon+i}} : {{pokemon.name}}" (tap)="seeDetail(pokemon)"></Button>
+                <!-- <Label text="{{pokemon.url}}"></Label> -->
+            </StackLayout>
+            <StackLayout orientation="horizontal">
+                <Button class="btn btn-primary" text="Previous" (tap)="loadPokemons('previous')" [isEnabled]="!loading">
+                    <!-- *ngIf="previousURL" -->
+                    <span class="filler"></span></Button>
+                <Button class="btn btn-primary" text="Next" (tap)="loadPokemons('next')" [isEnabled]="!loading"></Button>
+                <!-- *ngIf="nextURL" -->
+            </StackLayout>
         </StackLayout>
-        <StackLayout orientation="horizontal">
-            <Button text="previous" (tap)="loadPokemons('previous')">
-                <span class="filler"></span></Button>
-            <Button text="next" (tap)="loadPokemons('next')"></Button>
-        </StackLayout>
-    </StackLayout>
-</ScrollView>
+    </ScrollView>
+</Page>

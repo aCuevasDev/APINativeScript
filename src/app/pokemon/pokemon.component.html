@@ -1,5 +1,27 @@
 <!--<Button text="pokemon works!" class="btn btn-primary"></Button>-->
-<StackLayout orientation="vertical">
-    <label text="{{pokeName}}"></label>
-    <label text="{{pokemonDetail.id}}"></label>
-</StackLayout>
+<Page class="page">
+    <Page.actionBar>
+        <ActionBar class="action-bar" title="PokeApi">
+        </ActionBar>
+    </Page.actionBar>
+    <!-- <ScrollView orientation="vertical"> -->
+    <StackLayout>
+        <StackLayout orientation="vertical">
+            <label class="body" text="Name: {{pokemonDetail.species.name}}"></label>
+            <label class="body" text="ID: {{pokemonDetail.id}}"></label>
+            <label class="body" text="Base exp: {{pokemonDetail.base_experience}}"></label>
+            <ScrollView orientation="horizontal">
+                <StackLayout orientation="horizontal">
+                    <Image stretch="aspectFit" src={{pokemonDetail.sprites.front_default}}></Image>
+                    <Image stretch="aspectFit" src={{pokemonDetail.sprites.back_default}}></Image>
+                    <Image stretch="aspectFit" src={{pokemonDetail.sprites.front_shiny}}></Image>
+                    <Image stretch="aspectFit" src={{pokemonDetail.sprites.back_shiny}}></Image>
+                </StackLayout>
+            </ScrollView>
+            <label class="body" text="Height: {{pokemonDetail.height}}"></label>
+            <label class="body" text="Weight: {{pokemonDetail.weight}}"></label>
+            <!-- <label *ngFor="pokemonDetail.stats" text="{{pokemonDetail.stats.stat.name}} : {{pokemonDetail.stats.base_stat}} "></label> -->
+        </StackLayout>
+    </StackLayout>
+    <!-- </ScrollView> -->
+</Page>
