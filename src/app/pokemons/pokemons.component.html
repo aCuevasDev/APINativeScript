@@ -1,13 +1,26 @@
-<WrapLayout horizontalAlignment="center">
-    <StackLayout orientation="horizontal">
-        <Button class="btn btn-primary" text="Previous" (tap)="loadPokemons('previous')" [isEnabled]="!loading"></Button>
-        <Button class="btn btn-primary" text="Next" (tap)="loadPokemons('next')" [isEnabled]="!loading"></Button>
-    </StackLayout>
-    <ScrollView orientation="vertical">
-        <StackLayout style="width: 80%;">
-            <StackLayout *ngFor="let pokemon of pokemons; index as i">
-                <Button class="btn btn-primary" text="{{countPokemon+i}} : {{pokemon.name}}" (tap)="seeDetail(pokemon)"></Button>
-            </StackLayout>
+<!-- <ns-action-bar></ns-action-bar> NOT WORKING-->
+<Page class="page">
+    <Page.actionBar>
+        <ActionBar class="action-bar" title="PokeApi" android.icon="res://icon" android.iconVisibility="always">
+        </ActionBar>
+    </Page.actionBar>
+    <SearchBar hint="Search hint" [text]="searchPhrase" (textChange)="onTextChanged($event)" (submit)="onSubmit($event)"
+        color="white" textFieldBackgroundColor="red" textFieldHintColor="white"></SearchBar>
+
+    <WrapLayout horizontalAlignment="center">
+        <StackLayout orientation="horizontal">
+            <Button class="btn btn-primary" horizontalAlignment="left" text="Previous" (tap)="loadPokemons('previous')"
+                [isEnabled]="!loading"></Button>
+            <Button class="btn btn-primary" horizontalAlignment="right" text="Next" (tap)="loadPokemons('next')"
+                [isEnabled]="!loading"></Button>
         </StackLayout>
-    </ScrollView>
-</WrapLayout>
+        <ScrollView orientation="vertical" #myScrollView>
+            <StackLayout style="width: 80%;">
+                <StackLayout *ngFor="let pokemon of pokemons; index as i">
+                    <Button class="btn btn-primary" text="{{countPokemon+i}} : {{pokemon.name}}" (tap)="seeDetail(pokemon)"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </WrapLayout>
+
+</Page>

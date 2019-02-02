@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Pokemon } from '../model/pokemon';
 import { PokemonService } from '../pokemon.service';
 import { APIResponse } from '../model/apiResponse';
 import { RouterModule } from '@angular/router';
 import { NativeScriptRouterModule, RouterExtensions } from 'nativescript-angular/router';
+import { ScrollView } from 'tns-core-modules/ui/scroll-view';
 
 
 
@@ -17,15 +18,20 @@ export type RequestType = "next" | "previous";
 })
 export class PokemonsComponent implements OnInit {
 
+  @ViewChild("myScrollView")
+  private element: ElementRef;
+
   private pokemons: Pokemon[] = [];
   private countPokemon: number = 1; //to get the id of the pkmn
   private nextUrl: string = undefined;
   private previousUrl: string = undefined;
   public loading: boolean = false;
+  private scrollView: ScrollView;
 
   constructor(private pokemonService: PokemonService, private router: RouterExtensions) { }
 
   ngOnInit() {
+    this.scrollView = this.element.nativeElement;
     this.loadPokemons("next");
   }
 
@@ -37,6 +43,7 @@ export class PokemonsComponent implements OnInit {
       this.setCount(rqstType);
       this.setData(apiResponse);
       this.loading = false;
+      this.scrollView.scrollToVerticalOffset(0, false);
     });
   }
 

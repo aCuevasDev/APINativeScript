@@ -1,4 +1,8 @@
-
+<Page class="page">
+    <Page.actionBar>
+        <ActionBar class="action-bar" title="PokeApi" android.icon="res://icon" android.iconVisibility="always">
+        </ActionBar>
+    </Page.actionBar>
 
     <StackLayout orientation="vertical">
 
@@ -38,7 +42,7 @@
                 <label *ngFor="let type of pokemonDetail.types " class="body" text="Type {{type.slot}}: {{type.type.name}}"></label>
                 <label class="body" text="Height: {{pokemonDetail.height}}"></label>
                 <label class="body" text="Weight: {{pokemonDetail.weight}}"></label>
-                
+
                 <!-- <label text="Stats:"></label>
                 <ng-template let-stat="pokemonDetail.stats">
                         <GridLayout columns="auto" rows="auto">
@@ -46,11 +50,13 @@
                                 <Label text="{{stat.base_stat}}" row="0" col="1" colSpan="2" backgroundColor="green"/>
                         </GridLayout>
                 </ng-template> -->
-                        
-                
+
+
                 <!-- <label *ngFor="let stat of pokemonDetail.stats" class="body" text="{{stat.stat.name}} : {{stat.base_stat}} "></label> -->
-                
+
             </StackLayout>
         </ScrollView>
 
     </StackLayout>
+
+</Page>
