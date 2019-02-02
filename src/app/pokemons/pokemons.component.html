@@ -1,8 +1,8 @@
 <Page class="page">
     <Page.actionBar>
-        <ActionBar class="action-bar" title="PokeApi">
-            <ActionItem class="btn btn-primary" text="Previous" (tap)="loadPokemons('previous')" [isEnabled]="(!loading && !!previousURL)"></ActionItem>
-            <ActionItem class="btn btn-primary" text="Next" (tap)="loadPokemons('next')" [isEnabled]="(!loading && nextURL)"></ActionItem>
+        <ActionBar class="action-bar" title="PokeApi" android.icon="res://icon" android.iconVisibility="always">
+            <ActionItem class="action-item" text="Previous" (tap)="loadPokemons('previous')" visibility="loading ? collapse : visible" ></ActionItem>
+            <ActionItem class="action-item" text="Next" (tap)="loadPokemons('next')" visibility="loading ? collapse : visible" ></ActionItem>
             <!-- <SearchBar (submit)="onSubmit()"></SearchBar> -->
         </ActionBar>
     </Page.actionBar>
