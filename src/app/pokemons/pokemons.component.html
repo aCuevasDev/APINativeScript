@@ -1,25 +1,13 @@
-<Page class="page">
-    <Page.actionBar>
-        <ActionBar class="action-bar" title="PokeApi" android.icon="res://icon" android.iconVisibility="always">
-            <ActionItem class="action-item" text="Previous" (tap)="loadPokemons('previous')" visibility="loading ? collapse : visible" ></ActionItem>
-            <ActionItem class="action-item" text="Next" (tap)="loadPokemons('next')" visibility="loading ? collapse : visible" ></ActionItem>
-            <!-- <SearchBar (submit)="onSubmit()"></SearchBar> -->
-        </ActionBar>
-    </Page.actionBar>
-
+<WrapLayout horizontalAlignment="center">
+    <StackLayout orientation="horizontal">
+        <Button class="btn btn-primary" text="Previous" (tap)="loadPokemons('previous')" [isEnabled]="!loading"></Button>
+        <Button class="btn btn-primary" text="Next" (tap)="loadPokemons('next')" [isEnabled]="!loading"></Button>
+    </StackLayout>
     <ScrollView orientation="vertical">
         <StackLayout style="width: 80%;">
             <StackLayout *ngFor="let pokemon of pokemons; index as i">
                 <Button class="btn btn-primary" text="{{countPokemon+i}} : {{pokemon.name}}" (tap)="seeDetail(pokemon)"></Button>
-                <!-- <Label text="{{pokemon.url}}"></Label> -->
-            </StackLayout>
-            <StackLayout orientation="horizontal">
-                <!-- <Button class="btn btn-primary" text="Previous" (tap)="loadPokemons('previous')" [isEnabled]="!loading"> -->
-                <!-- *ngIf="previousURL" </Button> -->
-                <span class="filler"></span>
-                <!-- <Button class="btn btn-primary" text="Next" (tap)="loadPokemons('next')" [isEnabled]="!loading"></Button> -->
-                <!-- *ngIf="nextURL" -->
             </StackLayout>
         </StackLayout>
     </ScrollView>
-</Page>
+</WrapLayout>
