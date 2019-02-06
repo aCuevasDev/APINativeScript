@@ -9,9 +9,9 @@
 
     <WrapLayout horizontalAlignment="center">
         <StackLayout orientation="horizontal">
-            <Button class="btn btn-primary" horizontalAlignment="left" text="Previous" (tap)="loadPokemons('previous')"
+            <Button class="btn btn-primary" *ngIf="previousUrl" horizontalAlignment="left" text="Previous" (tap)="loadPokemons('previous')"
                 [isEnabled]="!loading"></Button>
-            <Button class="btn btn-primary" horizontalAlignment="right" text="Next" (tap)="loadPokemons('next')"
+            <Button class="btn btn-primary" *ngIf="nextUrl" horizontalAlignment="right" text="Next" (tap)="loadPokemons('next')"
                 [isEnabled]="!loading"></Button>
         </StackLayout>
         <ScrollView orientation="vertical" #myScrollView>

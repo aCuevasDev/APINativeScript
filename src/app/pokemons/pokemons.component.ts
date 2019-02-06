@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Pokemon } from '../model/pokemon';
 import { PokemonService } from '../pokemon.service';
 import { APIResponse } from '../model/apiResponse';
@@ -14,6 +14,7 @@ export type RequestType = "next" | "previous";
   selector: 'ns-pokemons',
   templateUrl: './pokemons.component.html',
   styleUrls: ['./pokemons.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   moduleId: module.id,
 })
 export class PokemonsComponent implements OnInit {
@@ -28,7 +29,10 @@ export class PokemonsComponent implements OnInit {
   public loading: boolean = false;
   private scrollView: ScrollView;
 
-  constructor(private pokemonService: PokemonService, private router: RouterExtensions) { }
+  constructor(
+    private pokemonService: PokemonService,
+    private router: RouterExtensions,
+    private changeDetector: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.scrollView = this.element.nativeElement;
@@ -51,6 +55,7 @@ export class PokemonsComponent implements OnInit {
     this.pokemons = apiResponse.results;
     this.nextUrl = apiResponse.next;
     this.previousUrl = apiResponse.previous;
+    this.changeDetector.markForCheck();
     console.log("length: " + this.pokemons.length);
   }
 

@@ -1,62 +1,30 @@
 <Page class="page">
     <Page.actionBar>
-        <ActionBar class="action-bar" title="PokeApi" android.icon="res://icon" android.iconVisibility="always">
+        <ActionBar class="action-bar" title="PokeApi">
         </ActionBar>
     </Page.actionBar>
-
-    <StackLayout orientation="vertical">
-
-        <ScrollView orientation="horizontal">
-            <StackLayout>
-                <StackLayout orientation="horizontal" class="pokemon">
-                    <StackLayout orientation="vertical">
-                        <label class="body" text="Front:"></label>
-                        <Image stretch="aspectFit" src={{pokemonDetail.sprites.front_default}}></Image>
-                    </StackLayout>
-
-                    <StackLayout orientation="vertical">
-                        <label class="body" text="Back:"></label>
-                        <Image stretch="aspectFit" src={{pokemonDetail.sprites.back_default}}></Image>
-                    </StackLayout>
-
-                    <StackLayout orientation="vertical">
-                        <label class="body" text="Front Shiny:"></label>
-                        <Image stretch="aspectFit" src={{pokemonDetail.sprites.front_shiny}}></Image>
-                    </StackLayout>
-
-                    <StackLayout orientation="vertical">
-                        <label class="body" text="Back Shiny:"></label>
-                        <Image stretch="aspectFit" src={{pokemonDetail.sprites.back_shiny}}></Image>
-                    </StackLayout>
-
-                </StackLayout>
-            </StackLayout>
-        </ScrollView>
-
-
+    <!-- <ScrollView orientation="vertical"> -->
+    <StackLayout orientation="horizontal">
         <ScrollView>
             <StackLayout orientation="vertical">
-                <label class="body" text="ID: {{pokemonDetail.id}}"></label>
                 <label class="body" text="Name: {{pokemonDetail.species.name}}"></label>
+                <label class="body" text="ID: {{pokemonDetail.id}}"></label>
                 <label class="body" text="Base EXP: {{pokemonDetail.base_experience}}"></label>
-                <label *ngFor="let type of pokemonDetail.types " class="body" text="Type {{type.slot}}: {{type.type.name}}"></label>
                 <label class="body" text="Height: {{pokemonDetail.height}}"></label>
                 <label class="body" text="Weight: {{pokemonDetail.weight}}"></label>
-
-                <!-- <label text="Stats:"></label>
-                <ng-template let-stat="pokemonDetail.stats">
-                        <GridLayout columns="auto" rows="auto">
-                                <Label text="{{stat.stat.name}}" row="0" col="0" backgroundColor="red"/>
-                                <Label text="{{stat.base_stat}}" row="0" col="1" colSpan="2" backgroundColor="green"/>
-                        </GridLayout>
-                </ng-template> -->
-
-
-                <!-- <label *ngFor="let stat of pokemonDetail.stats" class="body" text="{{stat.stat.name}} : {{stat.base_stat}} "></label> -->
-
+                <label *ngFor="let stat of pokemonDetail.stats" text="{{stat.stat.name}} : {{stat.base_stat}} "></label>
+                <label *ngFor="let type of pokemonDetail.types " class="body" text="Type {{type.slot}}: {{type.type.name}}"></label>
             </StackLayout>
         </ScrollView>
 
+        <ScrollView orientation="horizontal">
+            <StackLayout orientation="horizontal" style="width: 50%;">
+                <Image stretch="aspectFit" src={{pokemonDetail.sprites.front_default}}></Image>
+                <Image stretch="aspectFit" src={{pokemonDetail.sprites.back_default}}></Image>
+                <Image stretch="aspectFit" src={{pokemonDetail.sprites.front_shiny}}></Image>
+                <Image stretch="aspectFit" src={{pokemonDetail.sprites.back_shiny}}></Image>
+            </StackLayout>
+        </ScrollView>
     </StackLayout>
-
+    <!-- </ScrollView> -->
 </Page>
