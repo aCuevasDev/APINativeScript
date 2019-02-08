@@ -38,7 +38,7 @@ export class PokemonDetail {
         public location_area_encounters: string,
         public moves: { move: { name: string } }[],
         public sprites: Sprites,
-        public types: Types,
+        public types: Types[],
         public height: number,
         public stats: Stats[],
         public weight: number

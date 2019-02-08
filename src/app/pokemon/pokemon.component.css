@@ -1,1 +1,6 @@
 /* Add mobile styles for the component here.  */
+
+.body{
+    size: 5em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
