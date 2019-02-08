@@ -20,7 +20,17 @@ export class PokemonComponent implements OnInit {
 
   ngOnInit() {
     this.pokeName = this.route.snapshot.paramMap.get("pokemonName");
-    this.pokemonService.getPokemon(this.pokeName).subscribe(pokemon => this.pokemonDetail = pokemon);
+    this.pokemonService.getPokemon(this.pokeName).subscribe(pokemon => {
+      this.pokemonDetail = pokemon
+      this.sortTypes();
+    });
+
+  }
+
+  sortTypes() {
+    this.pokemonDetail.types.sort((type1, type2) => {
+      return type1.slot - type2.slot;
+    });
   }
 
 }

@@ -13,6 +13,7 @@ import { PokemonComponent } from "./pokemon/pokemon.component";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
     bootstrap: [
@@ -26,6 +27,7 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
     ],
     declarations: [
         AppComponent,
+        SearchBarComponent,
         PokemonComponent,
         PokemonsComponent,
     ],
