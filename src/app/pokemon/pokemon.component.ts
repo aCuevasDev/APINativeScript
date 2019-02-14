@@ -24,7 +24,6 @@ export class PokemonComponent implements OnInit {
       this.pokemonDetail = pokemon
       this.sortTypes();
     });
-
   }
 
   sortTypes() {

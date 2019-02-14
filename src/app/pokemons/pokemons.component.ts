@@ -6,8 +6,6 @@ import { RouterModule } from '@angular/router';
 import { NativeScriptRouterModule, RouterExtensions } from 'nativescript-angular/router';
 import { ScrollView } from 'tns-core-modules/ui/scroll-view';
 
-
-
 export type RequestType = "next" | "previous";
 
 @Component({
