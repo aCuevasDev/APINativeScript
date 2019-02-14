@@ -65,10 +65,8 @@ export class PokemonsComponent implements OnInit {
       this.countPokemon = 1;
   }
 
-
   seeDetail(pokemon: Pokemon) {
     console.log("tap: " + pokemon.name);
-
     this.router.navigate(["pokemon/" + pokemon.name])
   }
 }

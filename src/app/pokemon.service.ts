@@ -26,4 +26,9 @@ export class PokemonService {
   getPokemon(pokeName: string) {
     return this.http.get<PokemonDetail>(this.baseURL + "/pokemon/" + pokeName);
   }
+
+  getAllPokemons() {
+    return this.http.get<APIResponse>(this.baseURL + "/pokemon?limit=1000");
+  }
+
 }
