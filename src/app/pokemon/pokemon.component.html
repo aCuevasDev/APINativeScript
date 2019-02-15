@@ -4,14 +4,18 @@
         <ActionBar class="action-bar" title="PokeApi">
         </ActionBar>
     </Page.actionBar>
-    <StackLayout orientation="horizontal">
+
+
+    <StackLayout orientation="vertical">
 
         <ScrollView orientation="horizontal">
-            <StackLayout orientation="horizontal" style="width: 60%;">
-                <Image stretch="aspectFit" src={{pokemonDetail.sprites.front_default}}></Image>
-                <Image stretch="aspectFit" src={{pokemonDetail.sprites.back_default}}></Image>
-                <Image stretch="aspectFit" src={{pokemonDetail.sprites.front_shiny}}></Image>
-                <Image stretch="aspectFit" src={{pokemonDetail.sprites.back_shiny}}></Image>
+            <StackLayout>
+                <StackLayout orientation="horizontal" style="height: 40%;">
+                    <Image stretch="aspectFit" src={{pokemonDetail.sprites.front_default}}></Image>
+                    <Image stretch="aspectFit" src={{pokemonDetail.sprites.back_default}}></Image>
+                    <Image stretch="aspectFit" src={{pokemonDetail.sprites.front_shiny}}></Image>
+                    <Image stretch="aspectFit" src={{pokemonDetail.sprites.back_shiny}}></Image>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
 
@@ -22,8 +26,9 @@
                 <label class="body" text="Base EXP: {{pokemonDetail.base_experience}}"></label>
                 <label class="body" text="Height: {{pokemonDetail.height}}"></label>
                 <label class="body" text="Weight: {{pokemonDetail.weight}}"></label>
-                <label *ngFor="let stat of pokemonDetail.stats" text="{{stat.stat.name}} : {{stat.base_stat}} "></label>
-                <label *ngFor="let type of pokemonDetail.types " class="body"
+                <label class="body" *ngFor="let stat of pokemonDetail.stats"
+                    text="{{stat.stat.name}} : {{stat.base_stat}} "></label>
+                <label class="body" *ngFor="let type of pokemonDetail.types"
                     text="Type {{type.slot}}: {{type.type.name}}"></label>
             </StackLayout>
         </ScrollView>

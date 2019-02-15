@@ -1,2 +1,11 @@
-<SearchBar hint="Insert the name of the pokemon." (textChange)="onTextChanged($event)" (submit)="onSubmit($event)"
-    color="white" textFieldBackgroundColor="red" textFieldHintColor="white"></SearchBar>
+<WrapLayout>
+    <SearchBar hint="Insert the name of the pokemon." (textChange)="onTextChanged($event)" (submit)="onSubmit($event)"
+        color="white" textFieldBackgroundColor="black" textFieldHintColor="white">
+    </SearchBar>
+    <ScrollView orientation="vertical">
+        <StackLayout>
+            <button *ngFor="let pkmn of searchedPoke" text="{{pkmn.name}}" (tap)="onTap(pkmn)"></button>
+        </StackLayout>
+    </ScrollView>
+
+</WrapLayout>
