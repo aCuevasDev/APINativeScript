@@ -1,11 +1,12 @@
 <WrapLayout>
     <SearchBar hint="Insert the name of the pokemon." (textChange)="onTextChanged($event)" (submit)="onSubmit($event)"
-        color="white" textFieldBackgroundColor="black" textFieldHintColor="white">
+        color="white" textFieldBackgroundColor="gray" textFieldHintColor="white">
     </SearchBar>
     <ScrollView orientation="vertical">
-        <WrapLayout style="height: 10%;">
-            <button *ngFor="let pkmn of searchedPoke" text="{{pkmn.name}}" (tap)="onTap(pkmn)"></button>
-
+        <WrapLayout>
+            <WrapLayout>
+                <button *ngFor="let pkmn of searchedPoke" text="{{pkmn.name}}" (tap)="onTap(pkmn)"></button>
+            </WrapLayout>
         </WrapLayout>
     </ScrollView>
 
